@@ -1,10 +1,20 @@
+#[derive(Debug, Clone, Copy)]
+struct Position {
+    x: usize,
+    y: usize,
+}
+
 struct Game {
-    snake: Vec<(usize, usize)>,
+    snake: Vec<Position>,
 }
 
 fn main() {
     let game = Game {
-        snake: vec![(5, 5), (4, 5), (3, 5)],
+        snake: vec![
+            Position { x: 5, y: 5 },
+            Position { x: 4, y: 5 },
+            Position { x: 3, y: 5 },
+        ],
     };
 
     println!("{:?}", game.snake);
