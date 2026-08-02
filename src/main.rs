@@ -4,6 +4,7 @@ struct Position {
     y: usize,
 }
 
+#[derive(Debug, Clone)]
 struct Game {
     snake: Vec<Position>,
 }
