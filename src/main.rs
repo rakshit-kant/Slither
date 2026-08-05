@@ -10,21 +10,6 @@ struct Game {
 }
 
 fn main() {
-    let width = 80;
-    let height = 20;
-
-    let mut board = String::new();
-
-    for _ in 0..height {
-        for _ in 0..width {
-            board.push('.');
-        }
-
-        board.push('\n');
-    }
-
-    println!("{board}");
-
     let game = Game {
         snake: vec![
             Position { x: 5, y: 5 },
@@ -33,5 +18,30 @@ fn main() {
         ],
     };
 
-    // println!("{:?}", game.snake);
+    let width = 80;
+    let height = 20;
+
+    let mut board = String::new();
+
+    for current_y in 0..height {
+        for current_x in 0..width {
+            let mut is_snake = false;
+
+            for part in &game.snake {
+                if part.x == current_x && part.y == current_y {
+                    is_snake = true;
+                }
+            }
+
+            if is_snake {
+                board.push('#');
+            } else {
+                board.push('.');
+            }
+        }
+
+        board.push('\n');
+    }
+
+    println!("{board}");
 }
