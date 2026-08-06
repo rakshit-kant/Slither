@@ -43,5 +43,6 @@ fn main() {
         board.push('\n');
     }
 
-    println!("{board}");
+    println!("{:?}", game.snake);
+    println!("{:?}", game);
 }
